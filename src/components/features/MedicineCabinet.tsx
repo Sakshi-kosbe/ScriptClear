@@ -1,0 +1,1 @@
+export { MedicineCabinet } from '../MedicineCabinet';

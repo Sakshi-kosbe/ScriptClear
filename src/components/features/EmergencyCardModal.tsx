@@ -1,0 +1,1 @@
+export { EmergencyCardModal } from '../EmergencyCardModal';

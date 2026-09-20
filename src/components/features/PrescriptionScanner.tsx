@@ -1,0 +1,1 @@
+export { PrescriptionScanner } from '../PrescriptionScanner';

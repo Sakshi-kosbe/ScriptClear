@@ -1,0 +1,1 @@
+export { ConflictSentinel } from '../ConflictSentinel';
