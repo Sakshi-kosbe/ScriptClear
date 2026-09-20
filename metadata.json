@@ -1,0 +1,6 @@
+{
+  "name": "ScriptClear",
+  "description": "Plain-language prescription safety, polypharmacy conflict sentinel, and visual daily routine companion for seniors and caregivers.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
