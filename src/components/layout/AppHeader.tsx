@@ -1,6 +1,7 @@
 import React from 'react';
-import { Menu, Search, Eye, Volume2, Bell, Sparkles } from 'lucide-react';
+import { Menu, Search, Eye, Volume2, Bell, Sparkles, LogOut, User as UserIcon } from 'lucide-react';
 import { WorkspaceView, PatientProfile } from '../../types';
+import { useAuth } from '../../hooks/useAuth';
 
 export interface AppHeaderProps {
   currentView: WorkspaceView;
@@ -11,6 +12,7 @@ export interface AppHeaderProps {
   isSpeaking: boolean;
   onStopSpeech: () => void;
   documentTitle?: string;
+  onLogout?: () => void;
 }
 
 export const AppHeader: React.FC<AppHeaderProps> = ({
@@ -22,7 +24,25 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
   isSpeaking,
   onStopSpeech,
   documentTitle,
+  onLogout,
 }) => {
+  const { user, logout } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+    if (onLogout) {
+      onLogout();
+    }
+  };
+
+  const getUserInitials = (name?: string) => {
+    if (!name) return 'SC';
+    const parts = name.trim().split(' ');
+    if (parts.length >= 2) {
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+    return name.slice(0, 2).toUpperCase();
+  };
   const viewTitles: Record<WorkspaceView, string> = {
     dashboard: 'Dashboard Overview',
     documents: 'Document & Prescription Vault',
@@ -85,18 +105,31 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
             </span>
           </button>
 
-          {/* Caregiver profile tag */}
+          {/* Caregiver & User profile tag */}
           <div className="hidden sm:flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-slate-800">
-            <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-xs text-slate-700 dark:text-slate-300">
-              EV
+            <div className="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 flex items-center justify-center font-bold text-xs">
+              {getUserInitials(user?.name || patient.name)}
             </div>
             <div className="text-xs">
               <div className="font-semibold text-slate-900 dark:text-white leading-tight">
-                {patient.name}
+                {user?.name || patient.name}
               </div>
-              <div className="text-[10px] text-slate-400">Care Recipient</div>
+              <div className="text-[10px] text-slate-400 capitalize">
+                {user?.role ? `${user.role} • ` : ''}Care Recipient: {patient.name.split(' ')[0]}
+              </div>
             </div>
           </div>
+
+          {/* Logout Button */}
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:border-rose-200 dark:hover:border-rose-900/50 hover:bg-rose-50 dark:hover:bg-rose-950/30 text-xs font-semibold transition cursor-pointer"
+            title="Sign out of ScriptClear"
+            aria-label="Sign out"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span className="hidden md:inline">Sign Out</span>
+          </button>
         </div>
       </div>
     </header>

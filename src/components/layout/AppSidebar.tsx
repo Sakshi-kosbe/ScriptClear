@@ -13,8 +13,10 @@ import {
   X,
   User,
   HeartPulse,
+  LogOut,
 } from 'lucide-react';
 import { WorkspaceView, PatientProfile } from '../../types';
+import { useAuth } from '../../hooks/useAuth';
 
 export interface AppSidebarProps {
   currentView: WorkspaceView;
@@ -25,6 +27,7 @@ export interface AppSidebarProps {
   conflictCount: number;
   isOpenMobile: boolean;
   onCloseMobile: () => void;
+  onLogout?: () => void;
 }
 
 export const AppSidebar: React.FC<AppSidebarProps> = ({
@@ -36,7 +39,25 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   conflictCount,
   isOpenMobile,
   onCloseMobile,
+  onLogout,
 }) => {
+  const { user, logout } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+    if (onLogout) {
+      onLogout();
+    }
+  };
+
+  const getUserInitials = (name?: string) => {
+    if (!name) return 'SC';
+    const parts = name.trim().split(' ');
+    if (parts.length >= 2) {
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+    return name.slice(0, 2).toUpperCase();
+  };
   const navItems = [
     {
       id: 'dashboard' as WorkspaceView,
@@ -179,19 +200,36 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           <span className="text-slate-400">&rarr;</span>
         </button>
 
-        {/* Patient Profile Widget */}
-        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-950 flex items-center justify-center font-bold text-xs text-sky-700 dark:text-sky-300 flex-shrink-0">
-            EV
+        {/* User Account & Logout */}
+        <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-2.5">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-950 flex items-center justify-center font-bold text-xs text-sky-700 dark:text-sky-300 flex-shrink-0">
+                {getUserInitials(user?.name || patient.name)}
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="font-bold text-xs text-slate-900 dark:text-white truncate">
+                  {user?.name || 'Sarah Vance'}
+                </div>
+                <div className="text-[10px] text-slate-400 truncate capitalize">
+                  {user?.role || 'caregiver'} • {user?.email || 'sarah.vance@scriptclear.health'}
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={handleLogout}
+              className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition cursor-pointer"
+              title="Sign Out"
+              aria-label="Sign Out"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
           </div>
-          <div className="min-w-0 flex-1">
-            <div className="font-bold text-xs text-slate-900 dark:text-white truncate">
-              {patient.name} ({patient.age})
-            </div>
-            <div className="text-[10px] text-slate-400 truncate flex items-center gap-1">
-              <HeartPulse className="w-3 h-3 text-emerald-500" />
-              <span>AFib • Hypertension</span>
-            </div>
+
+          <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[10px] text-slate-400">
+            <span className="truncate">Care Recipient: {patient.name}</span>
+            <span className="flex-shrink-0 text-emerald-600 dark:text-emerald-400 font-medium">Active</span>
           </div>
         </div>
       </div>

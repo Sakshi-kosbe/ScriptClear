@@ -28,6 +28,7 @@ import { MedicationService } from '../services/medicationService';
 import { useMedicationSafety } from '../hooks/useMedicationSafety';
 import { useSpeech } from '../hooks/useSpeech';
 import { useToast } from '../components/ui/Toast';
+import { useAuth } from '../hooks/useAuth';
 import {
   Files,
   FileCheck2,
@@ -53,6 +54,8 @@ export interface WorkspacePageProps {
   patient: PatientProfile;
   setPatient: React.Dispatch<React.SetStateAction<PatientProfile>>;
   onResetDemo: () => void;
+  onLogout?: () => void;
+  onViewChange?: (view: WorkspaceView) => void;
 }
 
 export const WorkspacePage: React.FC<WorkspacePageProps> = ({
@@ -67,8 +70,25 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
   patient,
   setPatient,
   onResetDemo,
+  onLogout,
+  onViewChange,
 }) => {
+  const { user } = useAuth();
   const [currentView, setCurrentView] = useState<WorkspaceView>(initialView);
+
+  const handleSelectView = (view: WorkspaceView) => {
+    setCurrentView(view);
+    if (onViewChange) {
+      onViewChange(view);
+    }
+  };
+
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good morning';
+    if (hour < 18) return 'Good afternoon';
+    return 'Good evening';
+  };
   const [documents, setDocuments] = useState<AnalyzedDocument[]>(() =>
     DocumentService.getRecentDocuments()
   );
@@ -134,13 +154,14 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
       {/* Persistent SaaS Sidebar */}
       <AppSidebar
         currentView={currentView}
-        onSelectView={setCurrentView}
+        onSelectView={handleSelectView}
         onBackToLanding={onBackToLanding}
         onOpenEmergencyCard={() => setIsEmergencyModalOpen(true)}
         patient={patient}
         conflictCount={safetyResult.conflicts.length}
         isOpenMobile={isMobileNavOpen}
         onCloseMobile={() => setIsMobileNavOpen(false)}
+        onLogout={onLogout}
       />
 
       {/* Main Content Area */}
@@ -154,6 +175,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
           isSpeaking={isSpeaking}
           onStopSpeech={stop}
           documentTitle={currentView === 'analysis' && selectedDocument ? selectedDocument.name : undefined}
+          onLogout={onLogout}
         />
 
         <main className="flex-1 p-4 sm:p-8 max-w-6xl w-full mx-auto space-y-6">
@@ -172,7 +194,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
                     <div>
                       <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-                        Good morning, {patient.name.split(' ')[0]}
+                        {getGreeting()}, {user?.name || patient.name}
                       </h2>
                       <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                         Here is the clinical intelligence status for your prescriptions and medical documents.

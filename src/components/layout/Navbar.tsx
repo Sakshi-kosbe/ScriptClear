@@ -1,12 +1,14 @@
 import React from 'react';
-import { Pill, ArrowRight, ShieldCheck, Moon, Sun, Eye } from 'lucide-react';
+import { Pill, ArrowRight, Eye, LogIn, LayoutDashboard } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { useAuth } from '../../hooks/useAuth';
 
 export interface NavbarProps {
   onOpenWorkspace: (tab?: string) => void;
   onNavigateSection: (sectionId: string) => void;
   seniorMode: boolean;
   onToggleSeniorMode: () => void;
+  onNavigateAuth?: (mode: 'login' | 'signup') => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -14,7 +16,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   onNavigateSection,
   seniorMode,
   onToggleSeniorMode,
+  onNavigateAuth,
 }) => {
+  const { isAuthenticated, user } = useAuth();
+
   return (
     <header className="sticky top-0 z-40 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
@@ -80,21 +85,47 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span>{seniorMode ? 'High Contrast On' : 'Senior Mode'}</span>
           </button>
 
-          <button
-            onClick={() => onOpenWorkspace('dashboard')}
-            className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition px-3 py-2 cursor-pointer"
-          >
-            Sign In
-          </button>
+          {isAuthenticated ? (
+            <Button
+              size="sm"
+              onClick={() => onOpenWorkspace('dashboard')}
+              className="text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-xs"
+            >
+              <LayoutDashboard className="w-3.5 h-3.5" />
+              <span>Go to Dashboard</span>
+            </Button>
+          ) : (
+            <>
+              <button
+                onClick={() => {
+                  if (onNavigateAuth) {
+                    onNavigateAuth('login');
+                  } else {
+                    onOpenWorkspace('dashboard');
+                  }
+                }}
+                className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition px-3 py-2 cursor-pointer flex items-center gap-1.5"
+              >
+                <LogIn className="w-3.5 h-3.5 text-slate-400" />
+                <span>Sign In</span>
+              </button>
 
-          <Button
-            size="sm"
-            onClick={() => onOpenWorkspace('documents')}
-            className="text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-xs"
-          >
-            <span>Get Started</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Button>
+              <Button
+                size="sm"
+                onClick={() => {
+                  if (onNavigateAuth) {
+                    onNavigateAuth('signup');
+                  } else {
+                    onOpenWorkspace('documents');
+                  }
+                }}
+                className="text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-xs"
+              >
+                <span>Get Started</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </header>

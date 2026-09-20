@@ -25,6 +25,7 @@ export interface LandingPageProps {
   onToggleSeniorMode: () => void;
   onOpenEmergencyCard: () => void;
   onResetDemo: () => void;
+  onNavigateAuth?: (mode: 'login' | 'signup') => void;
 }
 
 export const LandingPage: React.FC<LandingPageProps> = ({
@@ -33,6 +34,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   onToggleSeniorMode,
   onOpenEmergencyCard,
   onResetDemo,
+  onNavigateAuth,
 }) => {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -55,6 +57,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         onNavigateSection={scrollTo}
         seniorMode={seniorMode}
         onToggleSeniorMode={onToggleSeniorMode}
+        onNavigateAuth={onNavigateAuth}
       />
 
       <main>
