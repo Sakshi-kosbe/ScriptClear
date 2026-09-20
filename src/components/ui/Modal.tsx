@@ -61,9 +61,9 @@ export const Modal: React.FC<ModalProps> = ({
         <button
           onClick={onClose}
           aria-label="Close dialog"
-          className="absolute right-5 top-5 p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition cursor-pointer dark:hover:bg-slate-800 dark:hover:text-slate-200"
+          className="absolute right-5 top-5 inline-flex items-center justify-center h-9 w-9 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition cursor-pointer dark:hover:bg-slate-800 dark:hover:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5 shrink-0" />
         </button>
 
         {(title || subtitle) && (

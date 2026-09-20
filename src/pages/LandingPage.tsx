@@ -90,17 +90,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               <Button
                 size="lg"
                 onClick={() => onOpenWorkspace('documents')}
-                className="w-full sm:w-auto px-7 py-3 text-sm font-bold flex items-center justify-center gap-2 shadow-sm"
+                rightIcon={<ArrowRight className="w-4 h-4" />}
+                className="w-full sm:w-auto shadow-sm"
               >
-                <span>Analyze a Document</span>
-                <ArrowRight className="w-4 h-4" />
+                Analyze a Document
               </Button>
 
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => scrollTo('how-it-works')}
-                className="w-full sm:w-auto px-7 py-3 text-sm font-bold"
+                className="w-full sm:w-auto"
               >
                 See How It Works
               </Button>
@@ -143,9 +143,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   </span>
                   <button
                     onClick={() => onOpenWorkspace('dashboard')}
-                    className="text-xs font-bold text-sky-600 hover:text-sky-700 hover:underline cursor-pointer"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-sky-600 hover:text-sky-700 transition cursor-pointer shrink-0 rounded-md px-2 py-1 hover:bg-sky-50 dark:hover:bg-sky-950/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                   >
-                    Launch Full App &rarr;
+                    <span>Launch Full App</span>
+                    <span aria-hidden="true">&rarr;</span>
                   </button>
                 </div>
               </div>
@@ -332,9 +333,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             <Button
               size="sm"
               onClick={() => onOpenWorkspace('dashboard')}
-              className="text-xs font-semibold"
+              rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
             >
-              Open Workspace &rarr;
+              Open Workspace
             </Button>
           </div>
 
@@ -461,9 +462,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               <Button
                 size="sm"
                 onClick={() => onOpenWorkspace('documents')}
-                className="text-xs font-bold bg-sky-500 hover:bg-sky-400 text-white"
+                rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
+                className="bg-sky-500 hover:bg-sky-400 text-white"
               >
-                Launch Document Workspace &rarr;
+                Launch Document Workspace
               </Button>
             </div>
           </div>

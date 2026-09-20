@@ -56,15 +56,15 @@ export const MedicineCabinet: React.FC<MedicineCabinetProps> = ({
           />
         </div>
 
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-bold text-slate-500 px-2 py-1 bg-slate-100 rounded-lg">
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="text-xs font-bold text-slate-500 px-2.5 py-1.5 bg-slate-100 rounded-lg shrink-0">
             {medications.length} Prescriptions Active
           </span>
           <button
             onClick={onOpenScanner}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-xs transition cursor-pointer"
+            className="inline-flex items-center justify-center gap-1.5 h-10 min-h-[40px] px-4 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-xs transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-4 h-4 shrink-0" />
             <span>Scan / Ingest New</span>
           </button>
         </div>
@@ -169,16 +169,16 @@ export const MedicineCabinet: React.FC<MedicineCabinetProps> = ({
                       `${med.brandName}, ${med.dosage}. Purpose: ${med.purposePlain}. Instructions: ${med.instructionsPlain}. Prescribed by ${med.prescribedBy}.`
                     )
                   }
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-sky-600 hover:bg-sky-50 transition cursor-pointer"
+                  className="inline-flex items-center justify-center gap-1.5 h-8 min-h-[32px] px-3 rounded-lg text-xs font-bold text-slate-600 hover:text-sky-600 hover:bg-sky-50 transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                 >
-                  <Volume2 className="w-4 h-4 text-sky-600" />
+                  <Volume2 className="w-4 h-4 text-sky-600 shrink-0" />
                   <span>Listen</span>
                 </button>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 shrink-0">
                   <button
                     onClick={() => setSelectedMed(med)}
-                    className="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 transition cursor-pointer"
+                    className="inline-flex items-center justify-center h-8 min-h-[32px] px-3 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
                   >
                     Details & Pharmacy
                   </button>
@@ -188,10 +188,11 @@ export const MedicineCabinet: React.FC<MedicineCabinetProps> = ({
                         onRemoveMedication(med.id);
                       }
                     }}
-                    className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer"
+                    className="inline-flex items-center justify-center h-8 w-8 min-h-[32px] min-w-[32px] rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
                     title="Remove from cabinet"
+                    aria-label={`Remove ${med.brandName}`}
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <Trash2 className="w-4 h-4 shrink-0" />
                   </button>
                 </div>
               </div>
@@ -206,9 +207,10 @@ export const MedicineCabinet: React.FC<MedicineCabinetProps> = ({
           <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 relative my-8">
             <button
               onClick={() => setSelectedMed(null)}
-              className="absolute right-5 top-5 p-1.5 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition cursor-pointer"
+              className="absolute right-5 top-5 inline-flex items-center justify-center h-8 w-8 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              aria-label="Close details"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5 shrink-0" />
             </button>
 
             <div className="flex items-center gap-3 mb-4">
@@ -285,14 +287,14 @@ export const MedicineCabinet: React.FC<MedicineCabinetProps> = ({
                     `Details for ${selectedMed.brandName}. ${selectedMed.purposePlain}. ${selectedMed.instructionsPlain}.`
                   )
                 }
-                className="flex-1 py-2.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 font-bold text-xs hover:bg-sky-100 transition flex items-center justify-center gap-2 cursor-pointer"
+                className="flex-1 inline-flex items-center justify-center gap-2 h-10 min-h-[40px] px-4 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 font-bold text-xs sm:text-sm hover:bg-sky-100 transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
               >
-                <Volume2 className="w-4 h-4" />
+                <Volume2 className="w-4 h-4 shrink-0" />
                 <span>Listen Aloud</span>
               </button>
               <button
                 onClick={() => setSelectedMed(null)}
-                className="flex-1 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition cursor-pointer"
+                className="flex-1 inline-flex items-center justify-center h-10 min-h-[40px] px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
               >
                 Close
               </button>

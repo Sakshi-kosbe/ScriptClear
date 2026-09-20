@@ -20,7 +20,7 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
         <button
           onClick={() => onNavigate('documents')}
-          className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-sky-300 dark:hover:border-sky-800 hover:bg-sky-50/20 transition text-left cursor-pointer group"
+          className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-sky-300 dark:hover:border-sky-800 hover:bg-sky-50/20 transition text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
         >
           <div className="w-8 h-8 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-sky-600 flex items-center justify-center flex-shrink-0">
             <UploadCloud className="w-4 h-4" />
@@ -35,7 +35,7 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
 
         <button
           onClick={() => onNavigate('sentinel')}
-          className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-rose-300 dark:hover:border-rose-800 hover:bg-rose-50/20 transition text-left cursor-pointer group"
+          className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-rose-300 dark:hover:border-rose-800 hover:bg-rose-50/20 transition text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
         >
           <div className="w-8 h-8 rounded-lg bg-rose-50 dark:bg-rose-950/60 text-rose-600 flex items-center justify-center flex-shrink-0">
             <ShieldAlert className="w-4 h-4" />
@@ -50,7 +50,7 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
 
         <button
           onClick={() => onNavigate('routine')}
-          className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-800 hover:bg-emerald-50/20 transition text-left cursor-pointer group"
+          className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-emerald-800 hover:bg-emerald-50/20 transition text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
           <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 flex items-center justify-center flex-shrink-0">
             <Calendar className="w-4 h-4" />
@@ -65,7 +65,7 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
 
         <button
           onClick={onOpenEmergencyCard}
-          className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-800 hover:bg-amber-50/20 transition text-left cursor-pointer group"
+          className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-amber-300 dark:hover:border-amber-800 hover:bg-amber-50/20 transition text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
         >
           <div className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 flex items-center justify-center flex-shrink-0">
             <CreditCard className="w-4 h-4" />

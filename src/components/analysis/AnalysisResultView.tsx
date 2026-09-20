@@ -101,10 +101,10 @@ ${document.doctorQuestions.map((q) => `? ${q}`).join('\n')}
           {onBack && (
             <button
               onClick={onBack}
-              className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
+              className="inline-flex items-center justify-center h-8 w-8 min-h-[32px] min-w-[32px] rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
               aria-label="Back to documents list"
             >
-              <ArrowLeft className="w-5 h-5" />
+              <ArrowLeft className="w-5 h-5 shrink-0" />
             </button>
           )}
           <div>
@@ -131,31 +131,28 @@ ${document.doctorQuestions.map((q) => `? ${q}`).join('\n')}
             size="sm"
             variant="outline"
             onClick={handleSpeak}
-            className="text-xs flex items-center gap-1.5"
+            leftIcon={<Volume2 className={`w-3.5 h-3.5 ${isSpeaking ? 'text-sky-600 animate-pulse' : ''}`} />}
             aria-label={isSpeaking ? 'Stop audio readout' : 'Listen to analysis'}
           >
-            <Volume2 className={`w-3.5 h-3.5 ${isSpeaking ? 'text-sky-600 animate-pulse' : ''}`} />
-            <span>{isSpeaking ? 'Stop Audio' : 'Listen'}</span>
+            {isSpeaking ? 'Stop Audio' : 'Listen'}
           </Button>
 
           <Button
             size="sm"
             variant="outline"
             onClick={handleCopy}
-            className="text-xs flex items-center gap-1.5"
+            leftIcon={copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-            <span>{copied ? 'Copied' : 'Copy'}</span>
+            {copied ? 'Copied' : 'Copy'}
           </Button>
 
           <Button
             size="sm"
             variant="outline"
             onClick={handleDownload}
-            className="text-xs flex items-center gap-1.5"
+            leftIcon={<Download className="w-3.5 h-3.5" />}
           >
-            <Download className="w-3.5 h-3.5" />
-            <span>Export</span>
+            Export
           </Button>
         </div>
       </div>

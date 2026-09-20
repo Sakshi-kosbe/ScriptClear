@@ -241,13 +241,13 @@ export const DailyTimeline: React.FC<DailyTimelineProps> = ({
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
                   <button
                     onClick={() => handleReadSlot(slot.label, medsInSlot)}
-                    className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 text-xs font-semibold transition cursor-pointer"
+                    className="inline-flex items-center justify-center gap-1.5 h-8 min-h-[32px] px-3 rounded-lg bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 text-xs font-semibold transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                     title="Read this slot aloud"
                   >
-                    <Volume2 className="w-3.5 h-3.5 text-sky-600" />
+                    <Volume2 className="w-3.5 h-3.5 text-sky-600 shrink-0" />
                     <span>Listen</span>
                   </button>
                   <span className="text-xs font-bold text-slate-500">
@@ -345,33 +345,34 @@ export const DailyTimeline: React.FC<DailyTimelineProps> = ({
                           </div>
 
                           {/* Action controls: Listen & Toggle */}
-                          <div className="flex items-center gap-2 self-end sm:self-center">
+                          <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
                             <button
                               onClick={() => speakText(`${med.brandName} ${med.dosage}. ${med.instructionsPlain}. Remember: ${med.purposePlain}`)}
-                              className="p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-sky-600 hover:bg-sky-50 transition cursor-pointer"
+                              className="inline-flex items-center justify-center h-10 w-10 min-h-[40px] min-w-[40px] rounded-xl border border-slate-200 text-slate-600 hover:text-sky-600 hover:bg-sky-50 transition cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                               title="Listen to this pill instructions"
+                              aria-label={`Listen to instructions for ${med.brandName}`}
                             >
-                              <Volume2 className="w-4 h-4" />
+                              <Volume2 className="w-4 h-4 shrink-0" />
                             </button>
 
                             <button
                               onClick={() => onToggleDose(med.id, slot.id)}
-                              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm transition cursor-pointer shadow-xs ${
+                              className={`inline-flex items-center justify-center gap-2 h-10 min-h-[40px] px-4 rounded-xl font-bold text-xs sm:text-sm transition cursor-pointer shadow-xs shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
                                 isTaken
-                                  ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                                  ? 'bg-emerald-600 hover:bg-emerald-700 text-white focus-visible:ring-emerald-500'
                                   : seniorMode
-                                  ? 'bg-slate-900 hover:bg-slate-800 text-amber-300 ring-2 ring-amber-400'
-                                  : 'bg-sky-600 hover:bg-sky-700 text-white'
+                                  ? 'bg-slate-900 hover:bg-slate-800 text-amber-300 ring-2 ring-amber-400 focus-visible:ring-amber-400'
+                                  : 'bg-sky-600 hover:bg-sky-700 text-white focus-visible:ring-sky-500'
                               }`}
                             >
                               {isTaken ? (
                                 <>
-                                  <CheckCircle2 className="w-5 h-5" />
+                                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                                   <span>Taken {logEntry?.takenAt ? `at ${logEntry.takenAt}` : 'Today'}</span>
                                 </>
                               ) : (
                                 <>
-                                  <Circle className="w-5 h-5" />
+                                  <Circle className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                                   <span>Mark Taken</span>
                                 </>
                               )}
@@ -401,7 +402,7 @@ export const DailyTimeline: React.FC<DailyTimelineProps> = ({
         </div>
         <button
           onClick={onOpenScanner}
-          className="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs shadow-xs transition whitespace-nowrap cursor-pointer"
+          className="inline-flex items-center justify-center h-10 min-h-[40px] px-5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm shadow-xs transition whitespace-nowrap cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
         >
           Open AI Bottle Scanner
         </button>

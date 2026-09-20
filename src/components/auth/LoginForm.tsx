@@ -178,16 +178,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+        isLoading={isSubmitting}
+        size="lg"
+        className="w-full shadow-xs"
       >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="w-4 h-4 animate-spin" />
-            <span>Signing in...</span>
-          </>
-        ) : (
-          <span>Sign In</span>
-        )}
+        Sign In
       </Button>
 
       {/* Demo Credentials Quick Switcher */}

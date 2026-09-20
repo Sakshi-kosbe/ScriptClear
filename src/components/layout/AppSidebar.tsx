@@ -127,10 +127,10 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
 
           <button
             onClick={onCloseMobile}
-            className="md:hidden p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white"
+            className="md:hidden inline-flex items-center justify-center h-8 w-8 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
             aria-label="Close navigation menu"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5 shrink-0" />
           </button>
         </div>
 
@@ -138,9 +138,9 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
         <div className="px-2">
           <button
             onClick={onBackToLanding}
-            className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-sky-600 transition cursor-pointer font-medium"
+            className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-sky-600 transition cursor-pointer font-medium py-1 px-1.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-3.5 h-3.5 shrink-0" />
             <span>Back to Website</span>
           </button>
         </div>
@@ -157,7 +157,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
                   onSelectView(item.id);
                   onCloseMobile();
                 }}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer ${
+                className={`w-full inline-flex items-center justify-between px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${
                   isActive
                     ? 'bg-sky-50 text-sky-700 dark:bg-sky-950/60 dark:text-sky-300 font-bold shadow-xs'
                     : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-white'
@@ -165,7 +165,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               >
                 <div className="flex items-center gap-3">
                   <Icon
-                    className={`w-4 h-4 ${
+                    className={`w-4 h-4 shrink-0 ${
                       isActive ? 'text-sky-600 dark:text-sky-400' : 'text-slate-400'
                     }`}
                   />
@@ -188,10 +188,10 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
         {/* Emergency Wallet Card Trigger */}
         <button
           onClick={onOpenEmergencyCard}
-          className="w-full flex items-center justify-between p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200/70 dark:hover:bg-slate-800 transition cursor-pointer text-left text-xs"
+          className="w-full inline-flex items-center justify-between p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200/70 dark:hover:bg-slate-800 transition cursor-pointer text-left text-xs shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
         >
           <div className="flex items-center gap-2.5">
-            <CreditCard className="w-4 h-4 text-sky-600" />
+            <CreditCard className="w-4 h-4 text-sky-600 shrink-0" />
             <div>
               <div className="font-bold text-slate-900 dark:text-white">EMS Wallet Card</div>
               <div className="text-[10px] text-slate-500">1-click print for ER triage</div>
@@ -219,11 +219,11 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
 
             <button
               onClick={handleLogout}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition cursor-pointer"
+              className="inline-flex items-center justify-center h-8 w-8 rounded-lg text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
               title="Sign Out"
               aria-label="Sign Out"
             >
-              <LogOut className="w-4 h-4" />
+              <LogOut className="w-4 h-4 shrink-0" />
             </button>
           </div>
 

@@ -55,10 +55,10 @@ export const RecentDocumentsTable: React.FC<RecentDocumentsTableProps> = ({
         </div>
 
         <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-          <div className="inline-flex rounded-xl border border-slate-200 dark:border-slate-800 p-0.5 bg-slate-100/80 dark:bg-slate-800 text-xs">
+          <div className="inline-flex rounded-xl border border-slate-200 dark:border-slate-800 p-1 bg-slate-100/80 dark:bg-slate-800 text-xs">
             <button
               onClick={() => setStatusFilter('all')}
-              className={`px-3 py-1.5 rounded-lg font-medium transition cursor-pointer ${
+              className={`inline-flex items-center justify-center px-3 py-1.5 rounded-lg font-medium transition cursor-pointer shrink-0 whitespace-nowrap ${
                 statusFilter === 'all'
                   ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-xs'
                   : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
@@ -68,20 +68,20 @@ export const RecentDocumentsTable: React.FC<RecentDocumentsTableProps> = ({
             </button>
             <button
               onClick={() => setStatusFilter('flagged_hazard')}
-              className={`px-3 py-1.5 rounded-lg font-medium transition cursor-pointer flex items-center gap-1 ${
+              className={`inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition cursor-pointer shrink-0 whitespace-nowrap ${
                 statusFilter === 'flagged_hazard'
-                  ? 'bg-white dark:bg-slate-900 text-rose-600 dark:text-rose-400 shadow-xs'
+                  ? 'bg-white dark:bg-slate-900 text-rose-600 dark:text-rose-400 shadow-xs font-semibold'
                   : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <AlertTriangle className="w-3 h-3 text-rose-500" />
+              <AlertTriangle className="w-3.5 h-3.5 text-rose-500 shrink-0" />
               <span>Hazards</span>
             </button>
             <button
               onClick={() => setStatusFilter('analyzed')}
-              className={`px-3 py-1.5 rounded-lg font-medium transition cursor-pointer ${
+              className={`inline-flex items-center justify-center px-3 py-1.5 rounded-lg font-medium transition cursor-pointer shrink-0 whitespace-nowrap ${
                 statusFilter === 'analyzed'
-                  ? 'bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-xs'
+                  ? 'bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-xs font-semibold'
                   : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -174,22 +174,22 @@ export const RecentDocumentsTable: React.FC<RecentDocumentsTableProps> = ({
                       className="py-3.5 px-4 text-right whitespace-nowrap"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <div className="flex items-center justify-end gap-1">
+                      <div className="flex items-center justify-end gap-1.5">
                         <button
                           onClick={() => onSelectDocument(doc)}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
+                          className="inline-flex items-center justify-center h-8 w-8 rounded-lg text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                           title="View Analysis"
                           aria-label={`View analysis for ${doc.name}`}
                         >
-                          <Eye className="w-4 h-4" />
+                          <Eye className="w-4 h-4 shrink-0" />
                         </button>
                         <button
                           onClick={() => onDeleteDocument(doc.id)}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition cursor-pointer"
+                          className="inline-flex items-center justify-center h-8 w-8 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
                           title="Delete Document"
                           aria-label={`Delete ${doc.name}`}
                         >
-                          <Trash2 className="w-4 h-4" />
+                          <Trash2 className="w-4 h-4 shrink-0" />
                         </button>
                       </div>
                     </td>

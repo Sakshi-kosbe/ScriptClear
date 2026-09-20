@@ -274,16 +274,11 @@ export const SignupForm: React.FC<SignupFormProps> = ({
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xs cursor-pointer mt-2"
+        isLoading={isSubmitting}
+        size="lg"
+        className="w-full shadow-xs mt-2"
       >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="w-4 h-4 animate-spin" />
-            <span>Creating account...</span>
-          </>
-        ) : (
-          <span>Create Account</span>
-        )}
+        Create Account
       </Button>
 
       {/* Navigate to Login */}

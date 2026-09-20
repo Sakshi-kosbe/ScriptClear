@@ -62,16 +62,16 @@ export const Header: React.FC<HeaderProps> = ({
             </span>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Audio Indicator if speaking */}
             {isSpeaking && (
               <button
                 onClick={stopSpeech}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500 text-slate-950 font-bold hover:bg-amber-400 transition cursor-pointer text-xs shadow-xs"
+                className="inline-flex items-center justify-center gap-1.5 h-8 min-h-[32px] px-3 rounded-lg bg-amber-500 text-slate-950 font-bold hover:bg-amber-400 transition cursor-pointer text-xs shadow-xs shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2"
                 title="Stop reading aloud"
                 aria-label="Stop text-to-speech voice"
               >
-                <VolumeX className="w-3.5 h-3.5 animate-bounce" />
+                <VolumeX className="w-3.5 h-3.5 animate-bounce shrink-0" />
                 <span>Stop Voice</span>
               </button>
             )}
@@ -80,23 +80,23 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => setSeniorMode(!seniorMode)}
               aria-pressed={seniorMode}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-full font-bold transition cursor-pointer text-xs ${
+              className={`inline-flex items-center justify-center gap-1.5 h-8 min-h-[32px] px-3 rounded-full font-bold transition cursor-pointer text-xs shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 ${
                 seniorMode
                   ? 'bg-amber-400 text-slate-950 shadow-sm ring-2 ring-amber-300'
                   : 'bg-slate-800 text-slate-200 hover:bg-slate-700 border border-slate-700'
               }`}
             >
-              <Eye className="w-3.5 h-3.5" />
+              <Eye className="w-3.5 h-3.5 shrink-0" />
               <span>{seniorMode ? 'Senior Mode: ON' : 'Senior High Contrast'}</span>
             </button>
 
             {/* Emergency Wallet Card Export */}
             <button
               onClick={onOpenEmergencyCard}
-              className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-rose-900/80 text-rose-200 border border-rose-700/60 hover:bg-rose-800 transition cursor-pointer text-xs font-semibold"
+              className="inline-flex items-center justify-center gap-1.5 h-8 min-h-[32px] px-3 rounded-lg bg-rose-900/80 text-rose-200 border border-rose-700/60 hover:bg-rose-800 transition cursor-pointer text-xs font-semibold shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
               title="View and print standardized EMS Emergency Wallet Card"
             >
-              <CreditCard className="w-3.5 h-3.5" />
+              <CreditCard className="w-3.5 h-3.5 shrink-0" />
               <span className="hidden sm:inline">Print</span> Wallet Card
             </button>
           </div>

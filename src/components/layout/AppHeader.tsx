@@ -78,13 +78,13 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
         </div>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           {isSpeaking && (
             <button
               onClick={onStopSpeech}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-300 border border-sky-200 dark:border-sky-800 text-xs font-semibold animate-pulse cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 h-9 min-h-[36px] px-3.5 rounded-xl bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-300 border border-sky-200 dark:border-sky-800 text-xs font-semibold animate-pulse cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
             >
-              <Volume2 className="w-3.5 h-3.5" />
+              <Volume2 className="w-4 h-4 shrink-0" />
               <span>Stop Audio</span>
             </button>
           )}
@@ -92,14 +92,14 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
           {/* High Contrast Toggle */}
           <button
             onClick={onToggleSeniorMode}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition cursor-pointer ${
+            className={`inline-flex items-center justify-center gap-1.5 h-9 min-h-[36px] px-3.5 rounded-xl text-xs font-semibold border transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 ${
               seniorMode
                 ? 'bg-amber-100 border-amber-300 text-amber-950 font-black'
-                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
             title="Toggle Senior High Contrast"
           >
-            <Eye className="w-3.5 h-3.5 text-amber-600" />
+            <Eye className="w-4 h-4 text-amber-600 shrink-0" />
             <span className="hidden sm:inline">
               {seniorMode ? 'High Contrast On' : 'Senior Mode'}
             </span>
@@ -107,7 +107,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
 
           {/* Caregiver & User profile tag */}
           <div className="hidden sm:flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-slate-800">
-            <div className="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 flex items-center justify-center font-bold text-xs">
+            <div className="w-8 h-8 rounded-full bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 flex items-center justify-center font-bold text-xs shrink-0">
               {getUserInitials(user?.name || patient.name)}
             </div>
             <div className="text-xs">
@@ -123,11 +123,11 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
           {/* Logout Button */}
           <button
             onClick={handleLogout}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:border-rose-200 dark:hover:border-rose-900/50 hover:bg-rose-50 dark:hover:bg-rose-950/30 text-xs font-semibold transition cursor-pointer"
+            className="inline-flex items-center justify-center gap-1.5 h-9 min-h-[36px] px-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:border-rose-200 dark:hover:border-rose-900/50 hover:bg-rose-50 dark:hover:bg-rose-950/30 text-xs font-semibold transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2"
             title="Sign out of ScriptClear"
             aria-label="Sign out"
           >
-            <LogOut className="w-3.5 h-3.5" />
+            <LogOut className="w-4 h-4 shrink-0" />
             <span className="hidden md:inline">Sign Out</span>
           </button>
         </div>

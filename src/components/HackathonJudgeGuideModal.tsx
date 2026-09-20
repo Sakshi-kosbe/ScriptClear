@@ -21,9 +21,10 @@ export const HackathonJudgeGuideModal: React.FC<HackathonJudgeGuideModalProps> =
       <div className="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative my-8">
         <button
           onClick={onClose}
-          className="absolute right-5 top-5 p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition cursor-pointer"
+          className="absolute right-5 top-5 inline-flex items-center justify-center h-9 w-9 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+          aria-label="Close judge guide"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5 shrink-0" />
         </button>
 
         <div className="flex items-center gap-2 mb-2">
@@ -111,7 +112,7 @@ export const HackathonJudgeGuideModal: React.FC<HackathonJudgeGuideModalProps> =
                 onClose();
                 onRunRoutineDemo();
               }}
-              className="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs transition cursor-pointer flex items-center gap-1.5 shadow-xs"
+              className="inline-flex items-center justify-center gap-2 h-10 min-h-[40px] px-4 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs sm:text-sm transition cursor-pointer shadow-xs shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
             >
               <span>Demo 1: 24h Daily Routine & Voice Readout</span>
             </button>
@@ -121,7 +122,7 @@ export const HackathonJudgeGuideModal: React.FC<HackathonJudgeGuideModalProps> =
                 onClose();
                 onRunConflictDemo();
               }}
-              className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs transition cursor-pointer flex items-center gap-1.5 shadow-xs"
+              className="inline-flex items-center justify-center gap-2 h-10 min-h-[40px] px-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs sm:text-sm transition cursor-pointer shadow-xs shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2"
             >
               <span>Demo 2: Catch Fatal Warfarin + Advil Conflict</span>
             </button>

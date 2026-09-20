@@ -172,9 +172,9 @@ export const MissedDoseAdvisor: React.FC<MissedDoseAdvisorProps> = ({
 
             <button
               onClick={() => speakText(`${adviceTitle}. ${adviceBody}. Remember: Never take two doses at once.`)}
-              className="w-full py-2.5 rounded-xl bg-white text-slate-800 border border-slate-300 font-bold text-xs hover:bg-slate-50 transition flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+              className="w-full inline-flex items-center justify-center gap-2 h-10 min-h-[40px] px-4 rounded-xl bg-white text-slate-800 border border-slate-300 font-bold text-xs sm:text-sm hover:bg-slate-50 transition cursor-pointer shadow-xs shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
             >
-              <Volume2 className="w-4 h-4 text-sky-600" />
+              <Volume2 className="w-4 h-4 text-sky-600 shrink-0" />
               <span>Read Advice Aloud</span>
             </button>
           </div>

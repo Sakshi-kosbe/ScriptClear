@@ -116,16 +116,11 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+        isLoading={isSubmitting}
+        size="lg"
+        className="w-full shadow-xs"
       >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="w-4 h-4 animate-spin" />
-            <span>Sending instructions...</span>
-          </>
-        ) : (
-          <span>Send reset link</span>
-        )}
+        Send reset link
       </Button>
 
       <div className="text-center pt-2">

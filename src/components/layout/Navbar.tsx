@@ -70,18 +70,18 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           {/* Senior High Contrast Mode Toggle */}
           <button
             onClick={onToggleSeniorMode}
-            className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition cursor-pointer ${
+            className={`hidden sm:inline-flex items-center justify-center gap-1.5 h-9 px-3.5 rounded-xl text-xs font-semibold border transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 ${
               seniorMode
                 ? 'bg-amber-100 border-amber-300 text-amber-950 font-black'
-                : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
             title="Toggle High-Contrast Senior Accessibility Mode"
           >
-            <Eye className="w-3.5 h-3.5 text-amber-600" />
+            <Eye className="w-4 h-4 text-amber-600 shrink-0" />
             <span>{seniorMode ? 'High Contrast On' : 'Senior Mode'}</span>
           </button>
 
@@ -89,10 +89,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <Button
               size="sm"
               onClick={() => onOpenWorkspace('dashboard')}
-              className="text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-xs"
+              leftIcon={<LayoutDashboard className="w-4 h-4 shrink-0" />}
+              className="shadow-xs"
             >
-              <LayoutDashboard className="w-3.5 h-3.5" />
-              <span>Go to Dashboard</span>
+              Go to Dashboard
             </Button>
           ) : (
             <>
@@ -104,9 +104,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onOpenWorkspace('dashboard');
                   }
                 }}
-                className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition px-3 py-2 cursor-pointer flex items-center gap-1.5"
+                className="h-9 px-3.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer inline-flex items-center justify-center gap-1.5 shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
               >
-                <LogIn className="w-3.5 h-3.5 text-slate-400" />
+                <LogIn className="w-4 h-4 text-slate-400 shrink-0" />
                 <span>Sign In</span>
               </button>
 
@@ -119,10 +119,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onOpenWorkspace('documents');
                   }
                 }}
-                className="text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-xs"
+                rightIcon={<ArrowRight className="w-4 h-4 shrink-0" />}
+                className="shadow-xs"
               >
-                <span>Get Started</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                Get Started
               </Button>
             </>
           )}

@@ -80,24 +80,24 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="space-y-2">
               <button
                 onClick={onOpenEmergencyCard}
-                className="w-full text-left flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 transition cursor-pointer text-xs font-semibold text-slate-800 dark:text-slate-200"
+                className="w-full inline-flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 transition cursor-pointer text-xs font-semibold text-slate-800 dark:text-slate-200 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
               >
                 <span className="flex items-center gap-2">
-                  <CreditCard className="w-4 h-4 text-rose-500" />
-                  Print EMS Wallet Card
+                  <CreditCard className="w-4 h-4 text-rose-500 shrink-0" />
+                  <span>Print EMS Wallet Card</span>
                 </span>
-                <ExternalLink className="w-3 h-3 text-slate-400" />
+                <ExternalLink className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               </button>
 
               <button
                 onClick={onOpenJudgeModal}
-                className="w-full text-left flex items-center justify-between p-2.5 rounded-xl bg-amber-50/80 hover:bg-amber-100 dark:bg-amber-950/30 dark:hover:bg-amber-900/40 border border-amber-200 dark:border-amber-800/40 transition cursor-pointer text-xs font-bold text-amber-900 dark:text-amber-200"
+                className="w-full inline-flex items-center justify-between p-2.5 rounded-xl bg-amber-50/80 hover:bg-amber-100 dark:bg-amber-950/30 dark:hover:bg-amber-900/40 border border-amber-200 dark:border-amber-800/40 transition cursor-pointer text-xs font-bold text-amber-900 dark:text-amber-200 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
               >
                 <span className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-amber-600" />
-                  Judging Guide & Scenarios
+                  <Award className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Judging Guide & Scenarios</span>
                 </span>
-                <Sparkles className="w-3 h-3 text-amber-600" />
+                <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
               </button>
 
               <button

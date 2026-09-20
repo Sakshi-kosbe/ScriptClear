@@ -298,16 +298,16 @@ export const ConflictSentinel: React.FC<ConflictSentinelProps> = ({
               <p className="text-xs sm:text-sm font-medium text-slate-800 leading-relaxed italic">{q}</p>
               <button
                 onClick={() => handleCopyQuestion(q, idx)}
-                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 text-xs font-semibold flex-shrink-0 transition cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 h-8 min-h-[32px] px-3 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 text-xs font-semibold shrink-0 whitespace-nowrap transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
               >
                 {copiedIndex === idx ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-emerald-600" />
+                    <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                     <span className="text-emerald-700">Copied</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3.5 h-3.5 text-slate-500" />
+                    <Copy className="w-3.5 h-3.5 text-slate-500 shrink-0" />
                     <span>Copy</span>
                   </>
                 )}

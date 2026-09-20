@@ -160,12 +160,12 @@ TAKE 1 TABLET BY MOUTH DAILY WITH FOOD.`);
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 h-9 min-h-[36px] px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
             >
-              <Upload className="w-4 h-4" />
+              <Upload className="w-4 h-4 shrink-0" />
               <span>Upload Label Photo</span>
             </button>
             <input
@@ -253,16 +253,16 @@ TAKE 1 TABLET BY MOUTH DAILY WITH FOOD.`);
           <button
             onClick={handleSimulateScan}
             disabled={isScanning}
-            className="w-full py-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-black text-sm shadow-sm transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            className="w-full inline-flex items-center justify-center gap-2 h-11 min-h-[44px] px-4 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-black text-sm shadow-sm transition cursor-pointer shrink-0 whitespace-nowrap disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
           >
             {isScanning ? (
               <>
-                <RotateCcw className="w-4 h-4 animate-spin" />
+                <RotateCcw className="w-4 h-4 animate-spin shrink-0" />
                 <span>Running Semantic OCR & Conflict Extraction...</span>
               </>
             ) : (
               <>
-                <Sparkles className="w-4 h-4 text-amber-300" />
+                <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
                 <span>Deconstruct & Safety-Check This Prescription</span>
               </>
             )}
@@ -375,24 +375,24 @@ TAKE 1 TABLET BY MOUTH DAILY WITH FOOD.`);
                       `Parsed ${analysisResult.brandName}. ${analysisResult.purposePlain}. ${analysisResult.instructionsPlain}`
                     )
                   }
-                  className="flex-1 py-2.5 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 font-bold text-xs hover:bg-sky-100 transition flex items-center justify-center gap-2 cursor-pointer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 h-10 min-h-[40px] px-4 rounded-xl bg-sky-50 text-sky-700 border border-sky-200 font-bold text-xs sm:text-sm hover:bg-sky-100 transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                 >
-                  <Volume2 className="w-4 h-4" />
+                  <Volume2 className="w-4 h-4 shrink-0" />
                   <span>Listen to Plan</span>
                 </button>
 
                 <button
                   onClick={handleAddCurrent}
                   disabled={justAdded}
-                  className={`flex-1 py-2.5 rounded-xl font-bold text-xs shadow-xs transition flex items-center justify-center gap-2 cursor-pointer ${
+                  className={`flex-1 inline-flex items-center justify-center gap-2 h-10 min-h-[40px] px-4 rounded-xl font-bold text-xs sm:text-sm shadow-xs transition cursor-pointer shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
                     justAdded
-                      ? 'bg-emerald-600 text-white cursor-default'
-                      : 'bg-slate-900 hover:bg-slate-800 text-white'
+                      ? 'bg-emerald-600 text-white cursor-default focus-visible:ring-emerald-500'
+                      : 'bg-slate-900 hover:bg-slate-800 text-white focus-visible:ring-slate-900'
                   }`}
                 >
                   {justAdded ? (
                     <>
-                      <CheckCircle2 className="w-4 h-4" />
+                      <CheckCircle2 className="w-4 h-4 shrink-0" />
                       <span>Added to Routine!</span>
                     </>
                   ) : (
